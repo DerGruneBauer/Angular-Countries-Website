@@ -1,0 +1,40 @@
+/* 375 small 1440 large */
+.wrapper {
+    height: 100vh;
+    width: 100vw;
+}
+.header {
+    height: 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 10px 24px -7px rgba(2, 2, 2, .2);
+}
+
+.title {
+    font-weight: bold;
+    margin-left: 20px;
+    font-size: 17px;
+}
+
+.iconAndToggle {
+    display: flex;
+    height: 30%;
+}
+
+.icon {
+    width: 16px;
+    height: 50%;
+    margin-right: 3px;
+}
+
+.icon:hover {
+    filter: invert(42%) sepia(93%) saturate(1352%) hue-rotate(87deg) brightness(119%) contrast(119%);
+}
+
+.darkModeButton {
+    align-self: flex-end;
+    font-weight: 600;
+    margin-right: 20px;
+    font-size: 13px;
+}
