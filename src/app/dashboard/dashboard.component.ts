@@ -21,13 +21,14 @@ export class DashboardComponent implements OnInit {
     this.countryService.ApiCall().subscribe((data) => {
       this.searchItems = data;
       this.homepageItems = this.searchItems.slice(0, 10);
-      console.log(this.homepageItems);
     })
   }
 
   searchCountries() {
-    let query = document.querySelector('input').value;
-    this.countryService.getSearchResults(query).subscribe((data) => {
+    let query = document.querySelector('.searchInput') as HTMLInputElement;
+    let queryParam = query.value;
+    console.log(query);
+    this.countryService.getSearchResults(queryParam).subscribe((data) => {
       this.searchItems = data;
       this.homepageItems = this.searchItems.slice(0, 10);
     })
@@ -39,6 +40,10 @@ export class DashboardComponent implements OnInit {
       this.searchItems = data;
       this.homepageItems = this.searchItems.slice(0, 10);
     })
+  }
+
+  getCountry(country) {
+    this.countryService.getCountryDetails(country);
   }
 
 }

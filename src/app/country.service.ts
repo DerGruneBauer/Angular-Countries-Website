@@ -1,11 +1,27 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
+
+export const darkTheme = {
+  'itemsBG': 'hsl(209, 23%, 22%)',
+  'text': 'white',
+  'lowerBG': 'hsl(207, 26%, 17%)'
+};
+
+export const lightTheme = {
+  'itemsBG': 'white',
+  'text': 'black',
+  'lowerBG': 'hsl(0, 0%, 98%)'
+};
 @Injectable({
   providedIn: 'root'
 })
+
+
 export class CountryService {
 
+  countryDetails = [];
+  borderDetails;
   constructor(private httpClient: HttpClient) { }
 
   ApiUrl: string = `https://restcountries.eu/rest/v2/all`;
@@ -23,6 +39,55 @@ export class CountryService {
   getRegionSearch(region: string){
     let searchUrl: string = `https://restcountries.eu/rest/v2/region/${region}`;
     return this.httpClient.get(searchUrl);
+  }
+
+  getCountryDetails(country: object){
+    this.countryDetails.push(country);
+    if(this.countryDetails.length > 1){
+      this.countryDetails.splice(0,1);
+      return this;
+    }else{
+      return this;
+    }
+  }
+
+  returnDetails() {
+    return this.countryDetails;
+  }
+
+  getBorderDetails(countryCode: string){
+    // this.borderDetails.push(countryCode);
+    // console.log(countryCode);
+    // if(this.borderDetails.length > 1){
+    //   this.borderDetails.splice(0,1);
+    //   return this;
+    // }else{
+    //   return this;
+    // }
+    this.borderDetails = countryCode;
+    return this.borderDetails;
+  }
+
+  returnBorderDetails() {
+    console.log(this.borderDetails);
+    return this.borderDetails;
+  }
+
+  borderInfo(countryCode) {
+    let searchUrl: string = `https://restcountries.eu/rest/v2/alpha/${countryCode}`;
+    return this.httpClient.get(searchUrl);
+  }
+
+  toggleDark() {
+    this.setTheme(darkTheme);
+  }
+  toggleLight() {
+    this.setTheme(lightTheme);
+  }
+
+  private setTheme(theme: {}) {
+    Object.keys(theme).forEach(key =>
+      document.documentElement.style.setProperty(`--${key}`, theme[key]))
   }
 
 }

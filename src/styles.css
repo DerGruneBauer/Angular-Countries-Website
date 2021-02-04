@@ -1,4 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+
+:root {
+    --itemsBG: white;
+    --text: black;
+    --lowerBG: hsl(0, 0%, 98%); 
+}
+
 body {
     margin: 0;
     font-family: 'Nunito Sans', sans-serif;

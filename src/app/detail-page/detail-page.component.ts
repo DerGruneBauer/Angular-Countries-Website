@@ -8,9 +8,17 @@ import { CountryService } from '../country.service';
 })
 export class DetailPageComponent implements OnInit {
 
-  constructor(private countryService: CountryService ) { }
+  constructor( private countryService: CountryService ) { }
 
   ngOnInit(): void {
+  }
+
+  get details() {
+    return this.countryService.returnDetails();
+  }
+
+  borderInfo(countryCode: string) {
+    this.countryService.getBorderDetails(countryCode);
   }
 
 }

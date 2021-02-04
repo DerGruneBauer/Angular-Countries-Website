@@ -1,1 +1,36 @@
-<p>detail-page works!</p>
+<div class="wrapper">
+    <div class="space"></div>
+    <div class="button"><button routerLink="/home"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16l-4-4m0 0l4-4m-4 4h18" />
+      </svg>Back</button></div>
+    <div class="detailsCard" *ngFor="let detail of details; let i = index">
+        <div class="flag" [style.background-image]="
+        'url(' + details[i].flag + ')'
+      "></div>
+       <div class="infoWrapper">
+       <div class="title">{{ details[i].name }}</div> 
+        <div class="smallInfo">
+            <div class="native"><span>Native Name: </span>{{ details[i].nativeName }}</div>
+            <div class="population"><span>Population: </span>{{ details[i].population }}</div>
+            <div class="region"><span>Region: </span>{{ details[i].region }}</div>
+            <div class="subRegion"><span>Sub-Region: </span>{{ details[i].subregion }}</div>
+            <div class="capital"><span>Capital: </span>{{ details[i].capital }}</div>
+        </div>
+        <div class="secondSmallInfo">
+            <div class="domain"><span>Top Level Domain: </span>{{ details[i].topLevelDomain }}</div>
+            <div class="currencies"><span>Currencies: </span>{{ details[0].currencies[0].name }}</div>
+            <div class="language"><span>Languages: </span>{{ details[0].languages[i].name }}</div>
+        </div>
+        <div class="borderInfo">
+        <div class="borderTitle">Border Countries:</div>
+        <div class="borderButtons">
+            <div class="emptyMessage" *ngIf ="details[0].borders.length == 0">Does not have any bordering countries.</div>
+        <button class="borders" routerLink="/borderDetails" *ngFor = "let item of details[0].borders; let i = index" (click)="borderInfo(details[0].borders[i])">
+            {{ details[0].borders[i] }}
+        </button>
+    </div>
+    </div>
+    </div>
+
+    </div>
+</div>

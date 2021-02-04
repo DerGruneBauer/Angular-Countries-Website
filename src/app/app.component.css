@@ -2,6 +2,7 @@
 .wrapper {
     height: 100vh;
     width: 100vw;
+    color: var(--text);
 }
 .header {
     height: 10%;
@@ -9,6 +10,7 @@
     justify-content: space-between;
     align-items: center;
     box-shadow: 0px 10px 24px -7px rgba(2, 2, 2, .2);
+    background-color: var(--itemsBG);
 }
 
 .title {
@@ -20,21 +22,43 @@
 .iconAndToggle {
     display: flex;
     height: 30%;
-}
-
-.icon {
-    width: 16px;
-    height: 50%;
-    margin-right: 3px;
-}
-
-.icon:hover {
-    filter: invert(42%) sepia(93%) saturate(1352%) hue-rotate(87deg) brightness(119%) contrast(119%);
-}
-
-.darkModeButton {
-    align-self: flex-end;
-    font-weight: 600;
+    width: auto;
     margin-right: 20px;
-    font-size: 13px;
+    font-weight: bold;
 }
+.iconAndToggle:hover {
+    cursor: pointer;
+}
+
+label {
+    clear: both;
+}
+label:hover {
+    cursor: pointer;
+}
+
+svg {
+    color: var(--text);
+   height: 100%;
+}
+
+input {
+    display: none;
+}
+
+@media only screen and (min-width: 1440px) {
+
+    .header {
+        border-bottom: solid gray 1px;
+    }
+
+    .title {
+        margin-left: 40px;
+        font-size: 20px;
+    }
+
+    .iconAndToggle {
+        margin-right: 40px;
+    }
+ 
+  }
