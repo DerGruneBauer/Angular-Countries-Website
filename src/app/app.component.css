@@ -59,6 +59,7 @@ input {
 
     .iconAndToggle {
         margin-right: 40px;
+        width: auto;
     }
  
   }

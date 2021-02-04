@@ -1,4 +1,5 @@
 <div class="wrapper">
+    <div class="space"></div>
     <div class="button"><button routerLink="/home">Back</button></div>
     <div class="detailsCard">
         <div class="flag" [style.background-image]="
@@ -6,6 +7,7 @@
       "></div>
        <div class="infoWrapper">
        <div class="title">{{ borderDetails.name }}</div> 
+       <div class="smallInfoWrapper">
         <div class="smallInfo">
             <div class="native"><span>Native Name: </span>{{ borderDetails.nativeName }}</div>
             <div class="population"><span>Population: </span>{{ borderDetails.population }}</div>
@@ -18,12 +20,15 @@
             <div class="currencies"><span>Currencies: </span>{{ borderDetails.currencies[0].name }}</div>
             <div class="language"><span>Languages: </span>{{ borderDetails.languages[0].name }}</div>
         </div>
+    </div>
         <div class="borderInfo">
         <div class="borderTitle">Border Countries:</div>
+        <div class="borderButtons">
         <div class="emptyMessage" *ngIf ="borderDetails.borders.length == 0">Does not have any bordering countries.</div>
         <button class="borders" routerLink="/borderDetails" *ngFor = "let item of borderDetails.borders; let i = index" (click)="searchBorder(borderDetails.borders[i])" (click)="detailBorderInfo(borderDetails.borders[i])">
             {{ borderDetails.borders[i] }}
         </button>
+    </div>
     </div>
     </div>
 

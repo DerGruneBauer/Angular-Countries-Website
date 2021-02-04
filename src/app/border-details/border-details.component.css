@@ -4,19 +4,32 @@
     background-color: var(--lowerBG);
 }
 
-button {
-    border: none;
+.space {
     height: 30px;
-    margin: 30px 0 30px 0;
-    width: 100px;
-    background-color: var(--itemsBG);
-    color: var(--text);
-    box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.25);
+    width: 100%;
+    background-color: var(--lowerBG);
 }
 
 .button {
     width: 80%;
     margin: auto;
+}
+button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    height: 30px;
+    margin: 0 0 30px 0;
+    width: 100px;
+    background-color: var(--itemsBG);
+    color: var(--text);
+    box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.25);
+}
+svg {
+    color: var(--text);
+    height: 80%;
+    margin-right: 8px;
 }
 
 .detailsCard {
@@ -68,4 +81,43 @@ span, .borderTitle {
 .borders {
     width: 90px;
     margin: 10px 15px 5px 0;
+}
+@media only screen and (min-width: 1440px) {
+    .wrapper {
+        height: 89.8vh;
+    }
+    .detailsCard {
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    .infoWrapper {
+        display: flex;
+        max-width: 700px;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .smallInfoWrapper {
+        display: flex;
+    }
+
+    .smallInfo, .secondSmallInfo {
+        margin-top: 0;
+    }
+
+    .secondSmallInfo {
+        margin-left: 100px;
+    }
+
+    .flag {
+        height: 400px;
+        width: 550px;
+        margin: 0 80px 0 0;
+    }
+
+    .button {
+        margin-left: 76px;
+    }
+ 
 }
