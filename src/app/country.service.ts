@@ -21,7 +21,7 @@ export const lightTheme = {
 export class CountryService {
 
   countryDetails = [];
-  borderDetails;
+  borderDetails: string;
   constructor(private httpClient: HttpClient) { }
 
   ApiUrl: string = `https://restcountries.eu/rest/v2/all`;
@@ -56,24 +56,14 @@ export class CountryService {
   }
 
   getBorderDetails(countryCode: string){
-    // this.borderDetails.push(countryCode);
-    // console.log(countryCode);
-    // if(this.borderDetails.length > 1){
-    //   this.borderDetails.splice(0,1);
-    //   return this;
-    // }else{
-    //   return this;
-    // }
-    this.borderDetails = countryCode;
-    return this.borderDetails;
+    this.borderDetails = countryCode; 
   }
 
   returnBorderDetails() {
-    console.log(this.borderDetails);
-    return this.borderDetails;
+    return this.borderDetails; 
   }
 
-  borderInfo(countryCode) {
+  borderInfo(countryCode: string) {
     let searchUrl: string = `https://restcountries.eu/rest/v2/alpha/${countryCode}`;
     return this.httpClient.get(searchUrl);
   }

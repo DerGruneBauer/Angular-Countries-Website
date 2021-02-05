@@ -8,17 +8,11 @@ import { CountryService } from '../country.service';
 })
 export class BorderDetailsComponent implements OnInit {
 
-  borderDetails;
+  borderDetails: any;
   constructor( private countryService: CountryService ) { }
 
   ngOnInit(): void {
-    this.searchBorder();
-  }
-
-  searchBorder() {
-    this.countryService.borderInfo(this.borderInfo).subscribe((data) => {
-      this.borderDetails = data;
-    })
+    this.searchBorder(this.borderInfo);
   }
 
   detailBorderInfo(countryCode: string) {
@@ -26,7 +20,12 @@ export class BorderDetailsComponent implements OnInit {
   }
 
   get borderInfo() {
-    // return this.countryService.returnBorderDetails();
     return this.countryService.returnBorderDetails();
+  }
+
+  searchBorder(query: string) {
+    this.countryService.borderInfo(query).subscribe((data) => {
+      this.borderDetails = data;
+    })
   }
 }

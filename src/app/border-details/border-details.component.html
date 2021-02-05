@@ -25,7 +25,7 @@
         <div class="borderTitle">Border Countries:</div>
         <div class="borderButtons">
         <div class="emptyMessage" *ngIf ="borderDetails.borders.length == 0">Does not have any bordering countries.</div>
-        <button class="borders" routerLink="/borderDetails" *ngFor = "let item of borderDetails.borders; let i = index" (click)="searchBorder(borderDetails.borders[i])" (click)="detailBorderInfo(borderDetails.borders[i])">
+        <button class="borders" routerLink="/borderDetails" *ngFor = "let item of borderDetails.borders; let i = index" (click)="searchBorder(borderDetails.borders[i])" >
             {{ borderDetails.borders[i] }}
         </button>
     </div>
